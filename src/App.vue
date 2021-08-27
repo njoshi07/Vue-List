@@ -36,9 +36,9 @@ export default {
           description: "Eat Healthy",
         },
       ],
-      // styleObject: {
-      //   color: "gray",
-      // },
+      styleObject: {
+        color: "gray",
+      },
     };
   },
 };
