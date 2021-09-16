@@ -1,46 +1,29 @@
 <template>
   <div id="app">
-    <div class="todos">
-      <Todos v-bind:todos="todos"></Todos>
+    <div class="counter">
+      <h1>Counter: {{ getCounter }}</h1>
+      <h2>Counter + 2: {{ getCounterPlus }}</h2>
+      <Counter />
     </div>
   </div>
 </template>
 
 <script>
-// import Checkbox from "./components/Checkbox.vue";
-
-import Todos from "./components/Todos.vue";
+import Counter from "./components/Counter.vue";
+import { mapGetters } from "vuex";
 
 export default {
+  components: { Counter },
   name: "App",
-  components: {
-    Todos,
-  },
-  props: ["Todos"],
-  data: function () {
-    return {
-      todos: [
-        {
-          id: 1,
-          name: "Workout",
-          description: "Workout to stay healthy",
-        },
-        {
-          id: 2,
-          name: "Lawn Mowing",
-          description: "To keep yard Clean",
-        },
-        {
-          id: 3,
-          name: "Grocery",
-          description: "Eat Healthy",
-        },
-      ],
-      styleObject: {
-        color: "gray",
-      },
-    };
-  },
+  data: () => ({
+    count: "",
+  }),
+
+  computed: mapGetters(["getCounter", "getCounterPlus"]),
+
+  // mounted() {
+  //   this.count = this.$store.getters.getCounter;
+  // },
 };
 </script>
 
