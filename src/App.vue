@@ -14,7 +14,6 @@ export default {
   components: { Counter },
   name: "App",
   data: () => ({
-    // count: this.$store.getters.getCounter,
     test: "Hi There!",
   }),
 
