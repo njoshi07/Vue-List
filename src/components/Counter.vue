@@ -6,20 +6,41 @@
           <h1>This is counter</h1>
         </div>
         <div>
-          <p class="counterNum">0</p>
+          <p class="counterNum">{{ count }}</p>
         </div>
       </div>
 
       <div class="buttons">
-        <div class="addButton"><button class="button">+</button></div>
-        <div class="decreaseButton"><button class="button">-</button></div>
+        <div class="addButton">
+          <button class="button" v-on:click="increment">+</button>
+        </div>
+        <div class="decreaseButton">
+          <button class="button" v-on:click="decrement()">-</button>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data: () => ({
+    count: 2,
+  }),
+  methods: {
+    increment: function () {
+      this.count++;
+    },
+
+    decrement: function () {
+      if (this.count > 0) {
+        this.count--;
+      } else {
+        `<p> Counter can't go below 0. </p>`;
+      }
+    },
+  },
+};
 </script>
 
 <style scoped>

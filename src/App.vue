@@ -1,8 +1,6 @@
 <template>
   <div id="app">
     <div class="counter">
-      <h1>Counter: {{ getCounter }}</h1>
-      <h2>Counter + 2: {{ getCounterPlus }}</h2>
       <Counter />
     </div>
   </div>
@@ -16,7 +14,8 @@ export default {
   components: { Counter },
   name: "App",
   data: () => ({
-    count: "",
+    // count: this.$store.getters.getCounter,
+    test: "Hi There!",
   }),
 
   computed: mapGetters(["getCounter", "getCounterPlus"]),
