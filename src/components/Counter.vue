@@ -6,16 +6,26 @@
           <h1>This is counter</h1>
         </div>
         <div>
-          <p class="counterNum">{{ count }}</p>
+          <p class="counterNum">{{ getCounter }}</p>
         </div>
       </div>
 
       <div class="buttons">
         <div class="addButton">
-          <button class="button" v-on:click="increment">+</button>
+          <button
+            class="button"
+            v-on:click="$store.commit('setIncrementCounter')"
+          >
+            +
+          </button>
         </div>
         <div class="decreaseButton">
-          <button class="button" v-on:click="decrement()">-</button>
+          <button
+            class="button"
+            v-on:click="$store.commit('setDecrementCounter')"
+          >
+            -
+          </button>
         </div>
       </div>
     </div>
@@ -23,22 +33,10 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
-  data: () => ({
-    count: 2,
-  }),
-  methods: {
-    increment: function () {
-      this.count++;
-    },
-
-    decrement: function () {
-      if (this.count > 0) {
-        this.count--;
-      } else {
-        `<p> Counter can't go below 0. </p>`;
-      }
-    },
+  computed: {
+    ...mapGetters(["getCounter"]),
   },
 };
 </script>
