@@ -6,13 +6,11 @@ const state = {
             state.counter++;
             
           },
-      
+
           setDecrementCounter: function (state) {
             if (state.counter > 0) {
               state.counter--;
-      
-            } else {
-               
+            } else {  
               `<p> Counter can't go below 0. </p>`;
             }
           },
